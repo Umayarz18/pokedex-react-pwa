@@ -1,0 +1,17 @@
+/* ./styles/globals.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+.progress-outer {
+  @apply overflow-hidden min-h-full text-xs flex rounded bg-gray-200 w-full;
+}
+.progress-inner {
+  @apply flex flex-col text-center whitespace-nowrap
+text-white justify-center font-bold bg-[#30a7d7];
+}
