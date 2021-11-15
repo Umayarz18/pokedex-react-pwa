@@ -2,7 +2,7 @@ import Layout from '../../components/Layout';
 import Link from 'next/link';
 import TypeBadge from '../../components/TypeBadge';
 import { useEffect, useState } from 'react';
-import ProgressBar from '../../components/progressbar';
+import ProgressBar from '../../components/ProgressBar';
 const Pokemon = ({ pokemon, next, previous, speciesData }) => {
     const { } = speciesData;
 
