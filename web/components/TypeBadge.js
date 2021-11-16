@@ -1,5 +1,4 @@
 export default function TypeBadge({ givenType }) {
-    console.log(givenType)
     const types = [
         { name: 'normal', color: '#A8A878', borderTopColor: '#D8D8D0', borderBottomColor: '#705848' },
         { name: 'fire', color: '#F08030', borderTopColor: '#F8D030', borderBottomColor: '#C03028' },
@@ -25,22 +24,21 @@ export default function TypeBadge({ givenType }) {
 
     types.map((type) => {
         if (givenType.toString() === type.name) {
-            console.log(types[1].name);
             currentType = type;
         }
     })
 
 
     return (
-        <li className="border-t-2 border-b-2 rounded-md list-none text-center 
+        <li className=" rounded-md list-none text-center 
             font-medium p-1 w-1/3 capitalize"
             style={{
                 backgroundColor: currentType.color,
-                borderTopColor: currentType.borderTopColor,
-                borderBottomColor: currentType.borderBottomColor,
+                //borderTopColor: currentType.borderTopColor,
+                //borderBottomColor: currentType.borderBottomColor,
                 color: '#F8F8F8',
-                fontVariant: 'small-caps',
-                textShadow: '0 1px 1px #807870',
+                //fontVariant: 'small-caps',
+                //textShadow: '0 1px 1px #807870',
             }}>{currentType.name}</li>
     )
 }

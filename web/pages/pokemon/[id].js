@@ -146,7 +146,7 @@ function PokemonMetricsCard({ pokemon }) {
                 <p>
                     <div className="font-medium text-white mr-2 text-base">Abilities:</div>
                     <div className="flex flex-col capitalize text-lg">
-                        {pokemon.abilities.map(({ ability }) => (
+                        {pokemon.abilities.map(({ ability }, index) => (
                             <a>{ability.name}</a>
                         ))}
                     </div>
