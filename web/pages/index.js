@@ -9,7 +9,7 @@ export default function Home({ pokemon }) {
                 <h1 className="text-4xl mb-8 text-center  text-gray-500">NextJS Pokedex</h1>
                 <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  justify-center items-center bg-gray-100">
                     {pokemon.map((item, index) => (
-                        <PokemonCard pokemon={item} index={index} />
+                        <PokemonCard pokemon={item} index={index} key={`${item.name}`} />
                     ))}
                 </ul>
             </div>
@@ -20,7 +20,6 @@ export default function Home({ pokemon }) {
 
 function PokemonCard({ pokemon, index }) {
     const types = getPokemonTypes(index + 1);
-    console.log(types)
     return (
         <li key={index}>
             <Link href={`/pokemon/${index + 1}`}>
