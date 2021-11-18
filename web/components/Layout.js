@@ -2,7 +2,7 @@ import Head from 'next/head'
 
 const Layout = ({ title, children }) => {
     return (
-        <div className="bg-gray-700">
+        <div className="bg-gray-700 overflow-x-hidden">
             <Head>
                 <title>{title}</title>
                 <link rel="icon" href="/favicon.ico" />
