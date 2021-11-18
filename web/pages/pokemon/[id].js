@@ -30,7 +30,7 @@ const Pokemon = ({ pokemon, next, previous, speciesData }) => {
                 </h1>
                 {/** Page Navigation */}
                 <nav className="flex flex-row justify-between my-4">
-                    <a href={`/pokemon/${previous.id}`} className="flex flex-wrap items-center justify-between">
+                    <a href={`/pokemon/${previous.id}`} className="flex flex-row items-center justify-between">
 
                         <svg xmlns="http://www.w3.org/2000/svg"
                             className="h-6 w-6 inline mr-2" fill="none"
@@ -39,13 +39,13 @@ const Pokemon = ({ pokemon, next, previous, speciesData }) => {
                                 strokeWidth={2}
                                 d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z" />
                         </svg>
-                        <p className="inline text-gray-500 text-md text-sm md:font-medium mr-2">#{previous.id}</p>
-                        <p className="inline capitalize font-semibold text-gray-800 text-sm md:text-base">{previous.name}</p>
+                        <p className="inline text-gray-500 text-md text-sm md:font-medium mr-2">#{getId(previous.id)}</p>
+                        <p className="inline capitalize font-semibold text-gray-800 text-xs md:text-base">{previous.name}</p>
                     </a>
 
-                    <a href={`/pokemon/${next.id}`} className="flex flex-wrap items-center justify-between">
-                        <p className="inline capitalize font-semibold text-gray-800 text-sm md:text-base">{next.name}</p>
-                        <p className="inline text-gray-500 text-md text-sm md:font-medium ml-2">#{next.id}</p>
+                    <a href={`/pokemon/${next.id}`} className="flex flex-row items-center justify-between">
+                        <p className="inline capitalize font-semibold text-gray-800 text-xs md:text-base">{next.name}</p>
+                        <p className="inline text-gray-500 text-md text-sm md:font-medium ml-2">#{getId(next.id)}</p>
                         <svg xmlns="http://www.w3.org/2000/svg"
                             className="h-6 w-6 inline ml-2" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor">
@@ -135,22 +135,22 @@ function PokemonMetricsCard({ pokemon }) {
                              w-full ">
             <div className="my-2 ml-3 lg:m-5 text-xl  w-24">
                 <p>
-                    <div className="font-medium text-white mr-2 text-base">Weight:</div> {pokemon.weight / 10} kg
+                    <strong className="font-medium text-white mr-2 text-base block">Weight:</strong> {pokemon.weight / 10} kg
                 </p>
                 <p>
-                    <div className="font-medium text-white mr-2 text-base">Height:</div>
+                    <strong className="font-medium text-white mr-2 text-base block">Height:</strong>
                     {pokemon.height / 10} M
                 </p>
             </div>
             <div className=" my-2 mr-3 lg:m-5 text-xl  w-36">
-                <p>
+                <div>
                     <div className="font-medium text-white mr-2 text-base">Abilities:</div>
                     <div className="flex flex-col capitalize text-lg">
                         {pokemon.abilities.map(({ ability }, index) => (
-                            <a>{ability.name}</a>
+                            <a key={`${ability.name}-index`}>{ability.name}</a>
                         ))}
                     </div>
-                </p>
+                </div>
             </div>
         </div>
     )

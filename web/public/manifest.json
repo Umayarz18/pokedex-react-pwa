@@ -3,7 +3,7 @@
     "background_color": "#fde7e7",
     "display": "standalone",
     "scope": "/",
-  "start_url": "/",
+    "start_url": "/",
     "purpose": "any maskable",
     "name": "Next Js Pokedex",
     "short_name": "Pokedex",
@@ -28,6 +28,11 @@
             "src": "/icon-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
-        }
+        },
+        {
+            "src": "/favicon.ico",
+            "sizes": "196x196",
+            "purpose": "any maskable"
+          }
     ]
 }

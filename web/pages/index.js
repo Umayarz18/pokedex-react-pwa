@@ -20,9 +20,25 @@ export default function Home({ pokemon }) {
 
 function PokemonCard({ pokemon, index }) {
     const types = getPokemonTypes(index + 1);
+    const PokemonId = index + 1;
+
+    function getId(PokemonId) {
+        let value = '';
+        if (PokemonId < 10) {
+            value = `00${PokemonId}`
+        }
+        else if (PokemonId < 100) {
+            value = `0${PokemonId}`
+        }
+        else {
+            value = PokemonId;
+        }
+        return value;
+    }
+
     return (
         <li key={index}>
-            <Link href={`/pokemon/${index + 1}`}>
+            <Link href={`/pokemon/${PokemonId}`}>
                 <a className="p-4  m-2  capitalize flex flex-col items-center 
                    justify-center text-lg hover:transform hover:-translate-y-6 
                    transition duration-150 ease-in-out">
@@ -30,15 +46,18 @@ function PokemonCard({ pokemon, index }) {
                         <img
                             src={pokemon.image}
                             alt={pokemon.name}
+                            height='215px'
+                            width='215px'
                             className="w-full  h-full"
                         />
                     </div>
                     <div className="flex flex-col items-start  self-start mx-16 lg:mx-8">
                         <span className="mr-2 font-medium text-gray-500 text-xs" >
-                            #{index + 1}
+                            #{getId(PokemonId)}
                         </span>
                         <h2 className="font-semibold text-gray-800 text-2xl">{pokemon.name}</h2>
                         <div>
+                            
                         </div>
                     </div>
                 </a>
