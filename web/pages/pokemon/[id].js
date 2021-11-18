@@ -11,8 +11,14 @@ const Pokemon = ({ pokemon, next, previous, speciesData }) => {
         if (id < 10) {
             value = `00${pokemon.id}`
         }
+        else if(id == 1){
+            value = `001`
+        }
         else if (id < 100) {
             value = `0${pokemon.id}`
+        }
+        else if(id == 898){
+            value = `898`;
         }
         else {
             value = pokemon.id;
@@ -26,7 +32,7 @@ const Pokemon = ({ pokemon, next, previous, speciesData }) => {
             <div className="w-full lg:w-max bg-purple-50 lg:rounded-xl p-8 
                 lg:border-t-4 lg:border-b-4 border-2 border-red-500">
                 <h1 className="text-4xl mb-2 text-center capitalize">
-                    {pokemon.name} <span className="text-gray-500 text-md font-medium">#{getId(pokemon.id)}</span>
+                    {pokemon.name} <span className="text-gray-500 text-md font-medium">#{pokemon.id}</span>
                 </h1>
                 {/** Page Navigation */}
                 <nav className="flex flex-row justify-between my-4">
@@ -39,13 +45,13 @@ const Pokemon = ({ pokemon, next, previous, speciesData }) => {
                                 strokeWidth={2}
                                 d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z" />
                         </svg>
-                        <p className="inline text-gray-500 text-md text-sm md:font-medium mr-2">#{getId(previous.id)}</p>
+                        <p className="inline text-gray-500 text-md text-sm md:font-medium mr-2">#{previous.id}</p>
                         <p className="inline capitalize font-semibold text-gray-800 text-xs md:text-base">{previous.name}</p>
                     </a>
 
                     <a href={`/pokemon/${next.id}`} className="flex flex-row items-center justify-between">
                         <p className="inline capitalize font-semibold text-gray-800 text-xs md:text-base">{next.name}</p>
-                        <p className="inline text-gray-500 text-md text-sm md:font-medium ml-2">#{getId(next.id)}</p>
+                        <p className="inline text-gray-500 text-md text-sm md:font-medium ml-2">#{next.id}</p>
                         <svg xmlns="http://www.w3.org/2000/svg"
                             className="h-6 w-6 inline ml-2" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor">
@@ -157,7 +163,7 @@ function PokemonMetricsCard({ pokemon }) {
 }
 
 function getNextEntry(id) {
-    let entry = id;
+    let entry = ('00' + id).slice(-3);
     if (id == 898) {
         entry = 1;
     }
@@ -168,7 +174,7 @@ function getNextEntry(id) {
 }
 
 function getPreviousEntry(id) {
-    let entry = id;
+    let entry =  ('00' + id).slice(-3);
     if (id == 1) {
         entry = 898;
     }
