@@ -23,13 +23,7 @@ PokeAPI and deployed on Vercel. <em>[solo Nov 2021]</em>
 
 ## Live Project
 
-<a
-className="link"
-href="https://pokedex-react-pwa.vercel.app/"
-target="_blank"
-rel="noopener"
->Live Site Here
-</a>
+[Live Site Here](https://pokedex-react-pwa.vercel.app/)
 
 ## To Run
 
